@@ -1,7 +1,9 @@
-import { Link } from "expo-router";
-import { StyleSheet, Text, View } from "react-native";
+import useTheme from "@/hooks/useTheme";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function Index() {
+  const { toggleDarkMode } = useTheme();
+
   return (
     <View
       style={styles.container}
@@ -10,8 +12,9 @@ export default function Index() {
       <Text>TODO</Text>
 
       <Text style={styles.content}>hi</Text>
-
-      <Link href={"/about"}>Visit about screen</Link>
+      <TouchableOpacity onPress={toggleDarkMode}>
+        <Text>Toggle theme</Text>
+      </TouchableOpacity>
     </View>
   );
 }
